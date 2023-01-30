@@ -1,0 +1,22 @@
+[package]
+name = "sleep"
+version = "0.1.0"
+edition = "2021"
+license = "cc0-1.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[profile.release]
+opt-level = "z"
+debug = 0
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+incremental = false
+
+[dependencies.windows-sys]
+version = "0.45.0"
+features = [
+    "Win32_Foundation",
+    "Win32_System_Power"
+]
